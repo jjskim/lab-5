@@ -32,7 +32,6 @@ Test this function by hand in the console to get it working, and when you think 
 
 // TODO: Write your code here
 function multiply(a,b){ //eslint-disable-line
-
   var product = a * b;
   var message = "The product of " + a + " and " + b + " is " + product + ".";
   return [product, message];
@@ -40,7 +39,6 @@ function multiply(a,b){ //eslint-disable-line
 
 // TODO: Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
-
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -85,11 +83,21 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2,3,4]; //eslint-disable-line
 
 function sumArray(testArray){ //eslint-disable-line
-
+  var runningSum = 0; // start at 0, since nothing is added
+  for (var i = 0; i < testArray.length; i++) {
+    runningSum = sum(runningSum, testArray[i])[0];
+  }
+  var printArray = "";
+  for (var j = 0; j < testArray.length - 1; j++) {
+    printArray += testArray[j] + ",";
+  }
+  printArray = printArray + testArray[testArray.length - 1];
+  var sumArrayMsg = printArray + " was passed in as an array of numbers, and " + runningSum + " is their sum.";
+  return [runningSum, sumArrayMsg];
 }
 
 // TODO: Here is the test for sumArray(); uncomment it to run it
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
